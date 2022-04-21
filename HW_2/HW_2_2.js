@@ -1,5 +1,5 @@
 // ****
-let result = prompt('Введите ваш возраст', 'число')
+let result = prompt('Введите ваш возраст', 'число') // Оптимизация: "= +prompt" - сразу приведет к числу
 
 let age = result
 let age_2 = 18

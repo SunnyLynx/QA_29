@@ -37,7 +37,7 @@ if (age_1 < age_2) {
 }
 
 // *
-function checkAge(age) {
+const checkAge = function (age) {
     if (age < age_2) {
         console.log("You don’t have access cause your age is " + age + ". It’s less then " + age_2 + ".")
     } else if (age >= age_2 && age < age_3) {
@@ -52,26 +52,48 @@ checkAge(17)
 checkAge(18)
 checkAge(61)
 
+// **
+const checkAge_2 = function (age) {
+    if (typeof age == "number") {
+       
+        if (age < age_2) {
+            console.log("You don’t have access cause your age is " + age + ". It’s less then " + age_2 + ".")
+        } else if (age >= age_2 && age < age_3) {
+            console.log("Welcome!")
+        } else if (age >= age_3) {
+            console.log("Keep calm and look Culture channel.")
+        } else {
+            console.log("Technical work")
+        }
+    } else { console.log ('Введено не число') }
+} 
+checkAge_2("17")
+
 // ***
-function checkAge_3(age) {
-    if (typeof (age) == "string") {
-        age = Number(age)
-    }
-    if (age < age_2) {
-        console.log("You don’t have access cause your age is " + age + ". It’s less then " + age_2 + ".")
-    } else if (age >= age_2 && age < age_3) {
-        console.log("Welcome!")
-    } else if (age >= age_3) {
-        console.log("Keep calm and look Culture channel.")
-    } else {
-        console.log("Technical work")
-    }
+const checkAge_3 = function (age) {
+   // age = Number(age) - можно убрать, т.к isNaN сам переводит в number
+
+    // if (!isNaN(age)) - можно еще проще
+    // if (Number(age)) - и затем еще упрощаем, чтобы не вызывать класс
+    if (+(age)) { 
+        
+        if (age < age_2) {
+            console.log("You don’t have access cause your age is " + age + ". It’s less then " + age_2 + ".")
+        } else if (age >= age_2 && age < age_3) {
+            console.log("Welcome!")
+        } else if (age >= age_3) {
+            console.log("Keep calm and look Culture channel.")
+        } else {
+            console.log("Technical work")
+        }
+    } else { console.log ('Введено не число') }
 }
 checkAge_3("17")
+checkAge_3('пять')
 
 // **
-function checkAge_2(age) {
-    if (typeof (age) !== "number") {
+const checkAge_4 = function (age) {
+    if (typeof age !== "number") {
         throw ('Введено не число')
     } else if (age < age_2) {
         console.log("You don’t have access cause your age is " + age + ". It’s less then " + age_2 + ".")
@@ -83,4 +105,4 @@ function checkAge_2(age) {
         console.log("Technical work")
     }
 } 
-checkAge_2("пять")
+checkAge_4("пять")
