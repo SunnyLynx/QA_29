@@ -56,10 +56,12 @@ e.g. function getWordStructure(word)
 Проверки: 'case', 'Case', 'Check-list'
 */
 
+// indexOf()
+
 const getWordStructure = function (word) {
     let vowels = "aeiouy"
     let consonants = "bcdfghjklmnpqrstvwxyz" 
-    str = word.toLowerCase() 
+    let str = word.toLowerCase() 
 
     let countV = 0
     let countC = 0
@@ -80,3 +82,51 @@ getWordStructure("Case")
 getWordStructure("Check-list")
 console.log("=======")
 
+// includes() 
+
+const getWordStructure2 = function (word) {
+    let vowels = "aeiouy"
+    let consonants = "bcdfghjklmnpqrstvwxyz" 
+    let str = word.toLowerCase() 
+
+    let countV = 0
+    let countC = 0
+
+    for (let i = 0; i < str.length; i++) {
+        if (vowels.includes(str[i])) {
+            countV += 1
+        }
+        if (consonants.includes(str[i])) {
+            countC += 1
+        }
+    }
+    console.log("Слово " + word + " состоит из " + countV + " гласных букв и " + countC + " согласных букв")
+}
+getWordStructure2("Case")
+console.log("=======")
+
+/* 4**. Написать функцию, которая проверяет, является ли слово палиндромом
+e.g. function isPalindrom(word)
+
+Проверки: 'abba', 'Abba'
+*/
+
+const isPalindrom = function (word) {
+    let str = word.toLowerCase() 
+    let strRes = ""
+    
+    for (let i = str.length -1; i >= 0; i--) {
+        strRes += str[i]
+    }
+
+    if (strRes == str) {
+        console.log("palindrom")
+    } else {
+        console.log("not palindrom")
+    }
+}
+
+isPalindrom("abba")
+isPalindrom("Abba")
+isPalindrom("АРозаУпалаНаЛапуАзора")
+isPalindrom("bebebe")
